@@ -5,17 +5,27 @@ takrawRef.on('value', (snap) => {
   if (!data) return;
   current = data;
 
-  document.getElementById('ctrl-h-name').textContent = data.homeName || 'MYA';
+  document.getElementById('ctrl-h-name').textContent = data.homeName || 'မြန်မာ';
   document.getElementById('ctrl-h-sets').textContent = data.homeSets ?? 0;
   document.getElementById('ctrl-h-pts').textContent = data.homePoints ?? 0;
 
-  document.getElementById('ctrl-a-name').textContent = data.awayName || 'THA';
+  document.getElementById('ctrl-a-name').textContent = data.awayName || 'ထိုင်း';
   document.getElementById('ctrl-a-sets').textContent = data.awaySets ?? 0;
   document.getElementById('ctrl-a-pts').textContent = data.awayPoints ?? 0;
 
-  // Active Button UI Updates
+  // Active Buttons UI
   updateToggleUI('btn-type-pro', 'btn-type-tour', data.matchType === 'ကြေးစား');
   updateToggleUI('btn-style-fight', 'btn-style-handi', data.matchStyle === 'အဖိုက် / အနိုက်');
+
+  // Due Button UI
+  const dueBtn = document.getElementById('btn-due');
+  if (data.isDue) {
+    dueBtn.classList.add('active');
+    dueBtn.textContent = '⚡ DUE POINT : ON (ဒျူးဖွင့်ထားသည်)';
+  } else {
+    dueBtn.classList.remove('active');
+    dueBtn.textContent = '⚡ DUE POINT : OFF';
+  }
 });
 
 function updateToggleUI(btnId1, btnId2, isFirstActive) {
@@ -32,14 +42,17 @@ function updateToggleUI(btnId1, btnId2, isFirstActive) {
   }
 }
 
-// ၁။ ပွဲအမျိုးအစား ရွေးချယ်မှု
 function selectMatchType(type) {
   takrawRef.update({ matchType: type });
 }
 
-// ၂။ အပေးအယူ / ကစားဟန် ရွေးချယ်မှု
 function selectMatchStyle(style) {
   takrawRef.update({ matchStyle: style });
+}
+
+// Due Point Toggle
+function toggleDue() {
+  takrawRef.update({ isDue: !current.isDue });
 }
 
 function addPoint(team, val) {
@@ -72,13 +85,13 @@ function setMatchSet(setTxt) {
 
 function resetCurrentSetPoints() {
   if (confirm("လက်ရှိ Set ရမှတ်ကို 0-0 သို့ ပြန်ထားမလား?")) {
-    takrawRef.update({ homePoints: 0, awayPoints: 0 });
+    takrawRef.update({ homePoints: 0, awayPoints: 0, isDue: false });
   }
 }
 
 function saveTeams() {
-  const homeName = document.getElementById('input-h-name').value.trim() || current.homeName || 'MYA';
-  const awayName = document.getElementById('input-a-name').value.trim() || current.awayName || 'THA';
+  const homeName = document.getElementById('input-h-name').value.trim() || current.homeName || 'မြန်မာ';
+  const awayName = document.getElementById('input-a-name').value.trim() || current.awayName || 'ထိုင်း';
   takrawRef.update({ homeName, awayName });
 }
 
@@ -87,14 +100,15 @@ function resetAll() {
     takrawRef.set({
       matchType: "ကြေးစား",
       matchStyle: "အဖိုက် / အနိုက်",
-      homeName: "MYA",
-      awayName: "THA",
+      homeName: "မြန်မာ",
+      awayName: "ထိုင်း",
       homeSets: 0,
       awaySets: 0,
       homePoints: 0,
       awayPoints: 0,
       currentSet: "SET 1",
-      serve: "home"
+      serve: "home",
+      isDue: false
     });
   }
 }
