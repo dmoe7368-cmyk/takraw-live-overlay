@@ -11,7 +11,7 @@
 <body>
   <h2>Takraw Match Controller</h2>
 
-  <!-- ၁။ ပွဲအမျိုးအစား (တစ်ခုတည်းသာ ရွေးရမည်) -->
+  <!-- ၁။ ပွဲအမျိုးအစား -->
   <div class="card">
     <span class="label">၁။ ပွဲအမျိုးအစား (Match Type)</span>
     <div class="grid-2">
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <!-- ၂။ အပေးအယူ / ကစားဟန် (တစ်ခုတည်းသာ ရွေးရမည်) -->
+  <!-- ၂။ အပေးအယူ / ကစားဟန် -->
   <div class="card">
     <span class="label">၂။ အပေးအယူ / ကစားဟန်</span>
     <div class="grid-2">
@@ -29,42 +29,46 @@
     </div>
   </div>
 
-  <!-- Set Selector -->
+  <!-- ၃။ Set ရွေးချယ်မှု နှင့် Due Point ခလုတ် -->
   <div class="card">
-    <span class="label">Current Set</span>
-    <div class="grid-3">
+    <span class="label">၃။ Set & Due Point (ဒျူး) Setting</span>
+    <div class="grid-3" style="margin-bottom: 8px;">
       <button class="btn btn-slate" onclick="setMatchSet('SET 1')">SET 1</button>
       <button class="btn btn-slate" onclick="setMatchSet('SET 2')">SET 2</button>
       <button class="btn btn-slate" onclick="setMatchSet('SET 3')">SET 3</button>
     </div>
+    <!-- Due Point Marking ခလုတ် -->
+    <button class="btn btn-due" id="btn-due" onclick="toggleDue()">⚡ DUE POINT : OFF</button>
   </div>
 
   <!-- Points & Sets Control -->
   <div class="grid-2">
     <!-- Home Team -->
     <div class="card">
-      <div class="team-title" id="ctrl-h-name">MYA</div>
-      <div class="set-display">Sets: <b id="ctrl-h-sets" style="color:#38bdf8;">0</b></div>
+      <div class="team-title" id="ctrl-h-name">မြန်မာ</div>
+      <div class="set-display">Sets Won: <b id="ctrl-h-sets" style="color:#38bdf8;">0</b></div>
       <div class="pts-display" id="ctrl-h-pts">0</div>
       
       <button class="btn btn-green" style="width: 100%; margin-bottom: 6px;" onclick="addPoint('home', 1)">+1 POINT</button>
       <div class="row">
-        <button class="btn btn-red" onclick="addPoint('home', -1)">-1</button>
+        <button class="btn btn-red" onclick="addPoint('home', -1)">-1 Pt</button>
         <button class="btn btn-blue" onclick="addSet('home', 1)">+1 Set</button>
+        <button class="btn btn-slate" onclick="addSet('home', -1)">-1 Set</button>
       </div>
       <button class="btn btn-serve" style="width: 100%; margin-top: 6px;" onclick="setServe('home')">Serve 🟡</button>
     </div>
 
     <!-- Away Team -->
     <div class="card">
-      <div class="team-title" id="ctrl-a-name">THA</div>
-      <div class="set-display">Sets: <b id="ctrl-a-sets" style="color:#38bdf8;">0</b></div>
+      <div class="team-title" id="ctrl-a-name">ထိုင်း</div>
+      <div class="set-display">Sets Won: <b id="ctrl-a-sets" style="color:#38bdf8;">0</b></div>
       <div class="pts-display" id="ctrl-a-pts">0</div>
 
       <button class="btn btn-green" style="width: 100%; margin-bottom: 6px;" onclick="addPoint('away', 1)">+1 POINT</button>
       <div class="row">
-        <button class="btn btn-red" onclick="addPoint('away', -1)">-1</button>
+        <button class="btn btn-red" onclick="addPoint('away', -1)">-1 Pt</button>
         <button class="btn btn-blue" onclick="addSet('away', 1)">+1 Set</button>
+        <button class="btn btn-slate" onclick="addSet('away', -1)">-1 Set</button>
       </div>
       <button class="btn btn-serve" style="width: 100%; margin-top: 6px;" onclick="setServe('away')">Serve 🟡</button>
     </div>
@@ -79,8 +83,8 @@
   <div class="card">
     <span class="label">Team Names</span>
     <div class="row">
-      <input type="text" id="input-h-name" placeholder="Home (MYA)">
-      <input type="text" id="input-a-name" placeholder="Away (THA)">
+      <input type="text" id="input-h-name" placeholder="Home (မြန်မာ)">
+      <input type="text" id="input-a-name" placeholder="Away (ထိုင်း)">
     </div>
     <button class="btn btn-blue" style="width: 100%; margin-top: 8px; padding: 10px;" onclick="saveTeams()">Update Team Names</button>
   </div>
@@ -92,3 +96,4 @@
   <script src="js/control.js"></script>
 </body>
 </html>
+
