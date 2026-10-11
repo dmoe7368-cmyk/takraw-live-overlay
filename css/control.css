@@ -95,6 +95,25 @@ input[type="text"] {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
 }
 
+/* Due Button Styling */
+.btn-due {
+  width: 100%;
+  padding: 10px;
+  background: #334155;
+  color: #94a3b8;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.btn-due.active {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #f87171;
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
+}
+
 .btn-green { background: #16a34a; }
 .btn-red { background: #dc2626; font-size: 13px; }
 .btn-blue { background: #0284c7; font-size: 13px; }
