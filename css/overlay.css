@@ -12,9 +12,7 @@ body {
   height: 100vh;
 }
 
-/* =========================================
-   1. ညာဘက်ထောင့် Circle Logo Watermark
-   ========================================= */
+/* ညာဘက်ထောင့် Circle Logo */
 .top-right-badge {
   position: absolute;
   top: 16px;
@@ -33,9 +31,7 @@ body {
   display: block;
 }
 
-/* =========================================
-   2. Scoreboard (အောက်ခြေ)
-   ========================================= */
+/* Scoreboard Wrapper */
 .scoreboard-wrapper {
   position: absolute;
   bottom: 14px;
@@ -57,27 +53,39 @@ body {
   overflow: hidden;
 }
 
-.set-badge {
+/* Match Meta Box (ကြေးစား / ပြိုင်ပွဲ ၊ အဖိုက် / ပါစား) */
+.match-meta-box {
   background: #0284c7;
-  padding: 8px 16px;
+  padding: 8px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 90px;
+  min-width: 110px;
+  gap: 2px;
 }
 
-.set-text {
-  font-size: 18px;
+.meta-tag {
+  font-size: 11px;
   font-weight: 900;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #f0f9ff;
+  white-space: nowrap;
+}
+
+.meta-tag.sub {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
 }
 
-.match-label {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #e0f2fe;
+.set-text {
+  font-size: 15px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-top: 2px;
 }
 
 .team-box {
@@ -114,7 +122,7 @@ body {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* ဆာဗစ်ဘောလုံး အမှတ်အသား */
+/* Serve Ball */
 .serve-ball {
   width: 14px;
   height: 14px;
