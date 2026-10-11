@@ -34,11 +34,11 @@ body {
 }
 
 /* =========================================
-   2. ဘယ်ဘက်အောက်ထောင့် TV Broadcast Scorebug
+   2. ဘယ်ဘက် အပေါ်ထောင့် Scorebug Wrapper
    ========================================= */
 .scorebug-wrapper {
   position: absolute;
-  bottom: 18px;
+  top: 18px;
   left: 20px;
   z-index: 100;
 }
@@ -74,7 +74,6 @@ body {
   gap: 6px;
 }
 
-/* ရွှေရောင် စာသား Badge များ */
 .gold-badge {
   background: linear-gradient(135deg, #d97706, #f59e0b, #fbbf24);
   color: #1e1303;
@@ -147,7 +146,6 @@ body {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ဆာဗစ်ဘောလုံး ကော်လံ */
 .serve-slot {
   width: 22px;
   display: flex;
@@ -175,7 +173,6 @@ body {
   50% { transform: scale(1.3); opacity: 0.7; }
 }
 
-/* နာမည် ၃ ယောက်စာအတွက် သေသပ်သော Box */
 .team-name-box {
   flex: 1;
   overflow: hidden;
@@ -193,7 +190,6 @@ body {
   letter-spacing: 0.2px;
 }
 
-/* Set Win Box */
 .set-win-box {
   width: 32px;
   height: 28px;
@@ -213,7 +209,6 @@ body {
   color: #38bdf8;
 }
 
-/* ခုခတ်နေသည့် ပင်မ ရမှတ် (Points Box) */
 .pts-box {
   width: 44px;
   height: 32px;
