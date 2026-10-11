@@ -12,7 +12,35 @@ takrawRef.on('value', (snap) => {
   document.getElementById('ctrl-a-name').textContent = data.awayName || 'THA';
   document.getElementById('ctrl-a-sets').textContent = data.awaySets ?? 0;
   document.getElementById('ctrl-a-pts').textContent = data.awayPoints ?? 0;
+
+  // Active Button UI Updates
+  updateToggleUI('btn-type-pro', 'btn-type-tour', data.matchType === 'ကြေးစား');
+  updateToggleUI('btn-style-fight', 'btn-style-handi', data.matchStyle === 'အဖိုက် / အနိုက်');
 });
+
+function updateToggleUI(btnId1, btnId2, isFirstActive) {
+  const b1 = document.getElementById(btnId1);
+  const b2 = document.getElementById(btnId2);
+  if (!b1 || !b2) return;
+
+  if (isFirstActive) {
+    b1.classList.add('active');
+    b2.classList.remove('active');
+  } else {
+    b1.classList.remove('active');
+    b2.classList.add('active');
+  }
+}
+
+// ၁။ ပွဲအမျိုးအစား ရွေးချယ်မှု
+function selectMatchType(type) {
+  takrawRef.update({ matchType: type });
+}
+
+// ၂။ အပေးအယူ / ကစားဟန် ရွေးချယ်မှု
+function selectMatchStyle(style) {
+  takrawRef.update({ matchStyle: style });
+}
 
 function addPoint(team, val) {
   if (team === 'home') {
@@ -57,6 +85,8 @@ function saveTeams() {
 function resetAll() {
   if (confirm("ပွဲစဉ်အချက်အလက် အားလုံးကို အစက ပြန်စမလား?")) {
     takrawRef.set({
+      matchType: "ကြေးစား",
+      matchStyle: "အဖိုက် / အနိုက်",
       homeName: "MYA",
       awayName: "THA",
       homeSets: 0,
