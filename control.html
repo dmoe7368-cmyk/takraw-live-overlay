@@ -11,6 +11,24 @@
 <body>
   <h2>Takraw Match Controller</h2>
 
+  <!-- ၁။ ပွဲအမျိုးအစား (တစ်ခုတည်းသာ ရွေးရမည်) -->
+  <div class="card">
+    <span class="label">၁။ ပွဲအမျိုးအစား (Match Type)</span>
+    <div class="grid-2">
+      <button class="btn btn-toggle" id="btn-type-pro" onclick="selectMatchType('ကြေးစား')">ကြေးစား</button>
+      <button class="btn btn-toggle" id="btn-type-tour" onclick="selectMatchType('ပြိုင်ပွဲ')">ပြိုင်ပွဲ</button>
+    </div>
+  </div>
+
+  <!-- ၂။ အပေးအယူ / ကစားဟန် (တစ်ခုတည်းသာ ရွေးရမည်) -->
+  <div class="card">
+    <span class="label">၂။ အပေးအယူ / ကစားဟန်</span>
+    <div class="grid-2">
+      <button class="btn btn-toggle" id="btn-style-fight" onclick="selectMatchStyle('အဖိုက် / အနိုက်')">အဖိုက် / အနိုက်</button>
+      <button class="btn btn-toggle" id="btn-style-handi" onclick="selectMatchStyle('ပါစား / အောက်ခံ')">ပါစား / အောက်ခံ</button>
+    </div>
+  </div>
+
   <!-- Set Selector -->
   <div class="card">
     <span class="label">Current Set</span>
@@ -52,7 +70,7 @@
     </div>
   </div>
 
-  <!-- Reset Points Only -->
+  <!-- Reset Points -->
   <div class="card">
     <button class="btn btn-slate" style="width: 100%;" onclick="resetCurrentSetPoints()">Reset Current Set Points (0 - 0)</button>
   </div>
