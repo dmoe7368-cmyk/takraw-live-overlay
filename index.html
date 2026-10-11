@@ -10,61 +10,64 @@
 </head>
 <body>
 
-  <!-- ညာဘက်ထောင့် Circle Logo -->
+  <!-- ညာဘက်အပေါ်ထောင့် Circle Logo -->
   <div class="top-right-badge">
     <img src="assets/logo.png" alt="Logo" class="circle-logo" onerror="this.style.display='none'">
   </div>
 
-  <!-- အောက်ခြေ Takraw Scoreboard -->
-  <div class="scoreboard-wrapper">
-    <div class="takraw-board" id="board" style="display: none;">
+  <!-- ဘယ်ဘက်အောက်ထောင့် TV Broadcast Scorebug -->
+  <div class="scorebug-wrapper">
+    <div class="scorebug-card" id="board" style="display: none;">
       
-      <!-- Match Meta (ကြေးစား/ပြိုင်ပွဲ ၊ အဖိုက်/ပါစား ၊ Set & Due) -->
-      <div class="match-meta-box">
-        <div class="meta-row">
-          <span class="meta-tag" id="meta-type">ကြေးစား</span>
-          <span class="meta-tag sub" id="meta-style">အဖိုက် / အနိုက်</span>
+      <!-- အပေါ်ဘက် ရွှေရောင် Match Meta Bar -->
+      <div class="scorebug-header">
+        <div class="gold-tags">
+          <span class="gold-badge" id="meta-type">ကြေးစား</span>
+          <span class="gold-badge sub" id="meta-style">အဖိုက် / အနိုက်</span>
         </div>
-        <div class="set-row">
+        <div class="set-meta">
           <span class="set-text" id="current-set">SET 1</span>
-          <span class="due-badge" id="due-badge" style="display: none;">DUE POINT</span>
+          <span class="due-pill" id="due-badge" style="display: none;">DUE</span>
         </div>
       </div>
 
-      <!-- Home Team -->
-      <div class="team-side home-side">
-        <span class="serve-ball" id="home-serve"></span>
-        <span class="team-name" id="home-name">မြန်မာ</span>
+      <!-- ပင်မ အမှတ်စာရင်း (အပေါ်တစ်သင်း / အောက်တစ်သင်း) -->
+      <div class="scorebug-body">
         
-        <!-- Set Win Frame သီးသန့် -->
-        <div class="set-win-frame" title="Sets Won">
-          <span class="set-win-label">SET</span>
-          <span class="set-win-val" id="home-sets">0</span>
+        <!-- အပေါ်သင်း (Home Team) -->
+        <div class="team-row" id="home-row">
+          <div class="serve-slot">
+            <span class="serve-ball"></span>
+          </div>
+          <div class="team-name-box">
+            <span class="team-name-text" id="home-name">ကျောင်းဆရာ ၊ အငိုက် ၊ ဂွန်စော</span>
+          </div>
+          <div class="set-win-box" title="Sets Won">
+            <span class="set-num" id="home-sets">0</span>
+          </div>
+          <div class="pts-box">
+            <span class="pts-num" id="home-pts">0</span>
+          </div>
         </div>
 
-        <!-- ခု ခတ်နေသော ပင်မ ရမှတ် (Current Points) -->
-        <div class="current-pts-box">
-          <span class="pts-val" id="home-pts">0</span>
-        </div>
-      </div>
+        <div class="team-divider"></div>
 
-      <div class="score-divider">:</div>
-
-      <!-- Away Team -->
-      <div class="team-side away-side">
-        <!-- ခု ခတ်နေသော ပင်မ ရမှတ် (Current Points) -->
-        <div class="current-pts-box">
-          <span class="pts-val" id="away-pts">0</span>
-        </div>
-
-        <!-- Set Win Frame သီးသန့် -->
-        <div class="set-win-frame" title="Sets Won">
-          <span class="set-win-label">SET</span>
-          <span class="set-win-val" id="away-sets">0</span>
+        <!-- အောက်သင်း (Away Team) -->
+        <div class="team-row" id="away-row">
+          <div class="serve-slot">
+            <span class="serve-ball"></span>
+          </div>
+          <div class="team-name-box">
+            <span class="team-name-text" id="away-name">ထိုင်းကြီး ၊ ဘယ်လေး ၊ နဂါး</span>
+          </div>
+          <div class="set-win-box" title="Sets Won">
+            <span class="set-num" id="away-sets">0</span>
+          </div>
+          <div class="pts-box">
+            <span class="pts-num" id="away-pts">0</span>
+          </div>
         </div>
 
-        <span class="team-name" id="away-name">ထိုင်း</span>
-        <span class="serve-ball" id="away-serve"></span>
       </div>
 
     </div>
