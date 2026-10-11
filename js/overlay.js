@@ -4,22 +4,28 @@ takrawRef.on('value', (snap) => {
 
   document.getElementById('board').style.display = 'inline-flex';
   
-  // ပွဲအမျိုးအစား နှင့် ကစားဟန် အချက်အလက်များ
+  // ပွဲအမျိုးအစား နှင့် ကစားဟန်
   document.getElementById('meta-type').textContent = data.matchType || 'ကြေးစား';
   document.getElementById('meta-style').textContent = data.matchStyle || 'အဖိုက် / အနိုက်';
   document.getElementById('current-set').textContent = data.currentSet || 'SET 1';
 
-  // ရမှတ်နှင့် အသင်းအချက်အလက်များ
-  document.getElementById('home-name').textContent = data.homeName || 'MYA';
+  // Due Point Marking ပြသမှု
+  const dueBadge = document.getElementById('due-badge');
+  dueBadge.style.display = data.isDue ? 'inline-block' : 'none';
+
+  // Home အချက်အလက်များ
+  document.getElementById('home-name').textContent = data.homeName || 'မြန်မာ';
   document.getElementById('home-sets').textContent = data.homeSets ?? 0;
   document.getElementById('home-pts').textContent = data.homePoints ?? 0;
 
-  document.getElementById('away-name').textContent = data.awayName || 'THA';
+  // Away အချက်အလက်များ
+  document.getElementById('away-name').textContent = data.awayName || 'ထိုင်း';
   document.getElementById('away-sets').textContent = data.awaySets ?? 0;
   document.getElementById('away-pts').textContent = data.awayPoints ?? 0;
 
-  const homeBox = document.getElementById('home-box');
-  const awayBox = document.getElementById('away-box');
-  homeBox.classList.toggle('serving', data.serve === 'home');
-  awayBox.classList.toggle('serving', data.serve === 'away');
+  // ဆာဗစ်ဘောလုံး ပြသမှု
+  const homeSide = document.querySelector('.home-side');
+  const awaySide = document.querySelector('.away-side');
+  homeSide.classList.toggle('serving', data.serve === 'home');
+  awaySide.classList.toggle('serving', data.serve === 'away');
 });
