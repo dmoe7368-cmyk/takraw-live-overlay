@@ -3,8 +3,13 @@ takrawRef.on('value', (snap) => {
   if (!data) return;
 
   document.getElementById('board').style.display = 'inline-flex';
+  
+  // ပွဲအမျိုးအစား နှင့် ကစားဟန် အချက်အလက်များ
+  document.getElementById('meta-type').textContent = data.matchType || 'ကြေးစား';
+  document.getElementById('meta-style').textContent = data.matchStyle || 'အဖိုက် / အနိုက်';
   document.getElementById('current-set').textContent = data.currentSet || 'SET 1';
 
+  // ရမှတ်နှင့် အသင်းအချက်အလက်များ
   document.getElementById('home-name').textContent = data.homeName || 'MYA';
   document.getElementById('home-sets').textContent = data.homeSets ?? 0;
   document.getElementById('home-pts').textContent = data.homePoints ?? 0;
