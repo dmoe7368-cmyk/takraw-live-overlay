@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takraw Live Overlay</title>
+  <link rel="stylesheet" href="css/overlay.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+
+  <!-- ညာဘက်ထောင့် ကိုယ်ပိုင် Circle Logo -->
+  <div class="top-right-badge">
+    <img src="assets/logo.png" alt="Logo" class="circle-logo" onerror="this.style.display='none'">
+  </div>
+
+  <!-- အောက်ခြေ Takraw Scoreboard -->
+  <div class="scoreboard-wrapper">
+    <div class="takraw-board" id="board" style="display: none;">
+      <!-- Set Info -->
+      <div class="set-badge">
+        <span class="set-text" id="current-set">SET 1</span>
+        <span class="match-label">TAKRAW</span>
+      </div>
+
+      <!-- Home Side -->
+      <div class="team-box" id="home-box">
+        <span class="serve-ball"></span>
+        <span class="team-name" id="home-name">MYA</span>
+        <span class="sets-won" id="home-sets">0</span>
+        <span class="current-points" id="home-pts">0</span>
+      </div>
+
+      <!-- Away Side -->
+      <div class="team-box" id="away-box">
+        <span class="current-points" id="away-pts">0</span>
+        <span class="sets-won" id="away-sets">0</span>
+        <span class="team-name" id="away-name">THA</span>
+        <span class="serve-ball"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/overlay.js"></script>
+</body>
+</h
+tml>
