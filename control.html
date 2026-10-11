@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takraw Controller</title>
+  <link rel="stylesheet" href="css/control.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+  <h2>Takraw Match Controller</h2>
+
+  <!-- Set Selector -->
+  <div class="card">
+    <span class="label">Current Set</span>
+    <div class="grid-3">
+      <button class="btn btn-slate" onclick="setMatchSet('SET 1')">SET 1</button>
+      <button class="btn btn-slate" onclick="setMatchSet('SET 2')">SET 2</button>
+      <button class="btn btn-slate" onclick="setMatchSet('SET 3')">SET 3</button>
+    </div>
+  </div>
+
+  <!-- Points & Sets Control -->
+  <div class="grid-2">
+    <!-- Home Team -->
+    <div class="card">
+      <div class="team-title" id="ctrl-h-name">MYA</div>
+      <div class="set-display">Sets: <b id="ctrl-h-sets" style="color:#38bdf8;">0</b></div>
+      <div class="pts-display" id="ctrl-h-pts">0</div>
+      
+      <button class="btn btn-green" style="width: 100%; margin-bottom: 6px;" onclick="addPoint('home', 1)">+1 POINT</button>
+      <div class="row">
+        <button class="btn btn-red" onclick="addPoint('home', -1)">-1</button>
+        <button class="btn btn-blue" onclick="addSet('home', 1)">+1 Set</button>
+      </div>
+      <button class="btn btn-serve" style="width: 100%; margin-top: 6px;" onclick="setServe('home')">Serve 🟡</button>
+    </div>
+
+    <!-- Away Team -->
+    <div class="card">
+      <div class="team-title" id="ctrl-a-name">THA</div>
+      <div class="set-display">Sets: <b id="ctrl-a-sets" style="color:#38bdf8;">0</b></div>
+      <div class="pts-display" id="ctrl-a-pts">0</div>
+
+      <button class="btn btn-green" style="width: 100%; margin-bottom: 6px;" onclick="addPoint('away', 1)">+1 POINT</button>
+      <div class="row">
+        <button class="btn btn-red" onclick="addPoint('away', -1)">-1</button>
+        <button class="btn btn-blue" onclick="addSet('away', 1)">+1 Set</button>
+      </div>
+      <button class="btn btn-serve" style="width: 100%; margin-top: 6px;" onclick="setServe('away')">Serve 🟡</button>
+    </div>
+  </div>
+
+  <!-- Reset Points Only -->
+  <div class="card">
+    <button class="btn btn-slate" style="width: 100%;" onclick="resetCurrentSetPoints()">Reset Current Set Points (0 - 0)</button>
+  </div>
+
+  <!-- Team Names Setup -->
+  <div class="card">
+    <span class="label">Team Names</span>
+    <div class="row">
+      <input type="text" id="input-h-name" placeholder="Home (MYA)">
+      <input type="text" id="input-a-name" placeholder="Away (THA)">
+    </div>
+    <button class="btn btn-blue" style="width: 100%; margin-top: 8px; padding: 10px;" onclick="saveTeams()">Update Team Names</button>
+  </div>
+
+  <!-- Full Reset -->
+  <button class="btn btn-danger-all" onclick="resetAll()">RESET FULL MATCH</button>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/control.js"></script>
+</body>
+</html>
