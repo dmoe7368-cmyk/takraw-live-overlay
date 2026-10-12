@@ -45,9 +45,29 @@
     </div>
   </div>
 
-  <!-- ၄။ Set & Due Point (ဒျူး) Setting -->
+  <!-- ၄။ ပိုက်အမြင့် (Net Height) -->
   <div class="card">
-    <span class="label">၄။ Set & Due Point (ဒျူး) Setting</span>
+    <span class="label">၄။ ပိုက်အမြင့် (Net Height)</span>
+    <div class="grid-3" style="margin-bottom: 6px;">
+      <button class="btn btn-stage" onclick="quickSetHeight('၅\'၀\"')">၅'၀"</button>
+      <button class="btn btn-stage" onclick="quickSetHeight('၅\'၁\"')">၅'၁"</button>
+      <button class="btn btn-stage" onclick="quickSetHeight('၅\'၂\"')">၅'၂"</button>
+    </div>
+    <div class="grid-3" style="margin-bottom: 6px;">
+      <button class="btn btn-stage" onclick="quickSetHeight('၅\'၃\"')">၅'၃"</button>
+      <button class="btn btn-stage" onclick="quickSetHeight('၅\'၄\"')">၅'၄"</button>
+      <button class="btn btn-stage" onclick="quickSetHeight('စံချိန်')">စံချိန်</button>
+    </div>
+    <div class="row">
+      <input type="text" id="input-net-height" placeholder="စိတ်ကြိုက်ရိုက်ထည့်ရန် (ဥပမာ- ၅'၂\")">
+      <button class="btn btn-blue" style="max-width: 90px; padding: 8px;" onclick="saveCustomHeight()">သိမ်းမည်</button>
+      <button class="btn btn-slate" style="max-width: 65px; padding: 8px;" onclick="quickSetHeight('')">ပိတ်</button>
+    </div>
+  </div>
+
+  <!-- ၅။ Set & Due Point (ဒျူး) Setting -->
+  <div class="card">
+    <span class="label">၅။ Set & Due Point (ဒျူး) Setting</span>
     <div class="grid-3" style="margin-bottom: 8px;">
       <button class="btn btn-slate" onclick="setMatchSet('SET 1')">SET 1</button>
       <button class="btn btn-slate" onclick="setMatchSet('SET 2')">SET 2</button>
