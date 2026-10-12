@@ -12,9 +12,7 @@ body {
   height: 100vh;
 }
 
-/* =========================================
-   1. ညာဘက်အပေါ်ထောင့် Circle Logo
-   ========================================= */
+/* ညာဘက်အပေါ်ထောင့် Circle Logo */
 .top-right-badge {
   position: absolute;
   top: 16px;
@@ -33,9 +31,7 @@ body {
   display: block;
 }
 
-/* =========================================
-   2. ဘယ်ဘက် အပေါ်ထောင့် Scorebug Wrapper
-   ========================================= */
+/* ဘယ်ဘက် အပေါ်ထောင့် Scorebug */
 .scorebug-wrapper {
   position: absolute;
   top: 18px;
@@ -52,13 +48,11 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
   color: #fff;
   overflow: hidden;
-  min-width: 380px;
-  max-width: 420px;
+  min-width: 410px;
+  max-width: 460px;
 }
 
-/* =========================================
-   3. Header: ရွှေရောင် စာသားများနှင့် Set Meta
-   ========================================= */
+/* Header: ရွှေရောင် စာသားများနှင့် Stage */
 .scorebug-header {
   display: flex;
   justify-content: space-between;
@@ -71,7 +65,7 @@ body {
 .gold-tags {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .gold-badge {
@@ -83,6 +77,16 @@ body {
   border-radius: 4px;
   box-shadow: 0 1px 6px rgba(245, 158, 11, 0.35);
   letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* Tournament Stage Badge (Group, 16 သင်း, Quarter, etc.) */
+.gold-badge.stage {
+  background: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  box-shadow: none;
+  font-weight: 900;
 }
 
 .gold-badge.sub {
@@ -90,6 +94,7 @@ body {
   color: #fde047;
   border: 1px solid rgba(253, 224, 71, 0.45);
   box-shadow: none;
+  white-space: nowrap;
 }
 
 .set-meta {
@@ -103,6 +108,7 @@ body {
   font-weight: 900;
   color: #38bdf8;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .due-pill {
@@ -121,9 +127,7 @@ body {
   100% { transform: scale(1.08); box-shadow: 0 0 8px #ef4444; }
 }
 
-/* =========================================
-   4. Body: အပေါ်တစ်သင်း / အောက်တစ်သင်း Rows
-   ========================================= */
+/* Body */
 .scorebug-body {
   display: flex;
   flex-direction: column;
