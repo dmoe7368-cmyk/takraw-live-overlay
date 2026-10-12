@@ -4,10 +4,19 @@ takrawRef.on('value', (snap) => {
 
   document.getElementById('board').style.display = 'flex';
   
-  // ရွှေရောင် စာသားများနှင့် Set Meta
-  document.getElementById('meta-type').textContent = data.matchType || 'ကြေးစား';
+  // ပွဲအမျိုးအစား & ကစားဟန်
+  document.getElementById('meta-type').textContent = data.matchType || 'ပြိုင်ပွဲ';
   document.getElementById('meta-style').textContent = data.matchStyle || 'အဖိုက် / အနိုက်';
   document.getElementById('current-set').textContent = data.currentSet || 'SET 1';
+
+  // ပြိုင်ပွဲအဆင့် (Tournament Stage) ပြသခြင်း
+  const stageEl = document.getElementById('meta-stage');
+  if (data.matchStage && data.matchStage.trim() !== '') {
+    stageEl.textContent = data.matchStage;
+    stageEl.style.display = 'inline-block';
+  } else {
+    stageEl.style.display = 'none';
+  }
 
   // Due Point Marking
   const dueBadge = document.getElementById('due-badge');
