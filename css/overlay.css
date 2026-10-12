@@ -48,11 +48,11 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
   color: #fff;
   overflow: hidden;
-  min-width: 410px;
-  max-width: 460px;
+  min-width: 420px;
+  max-width: 490px;
 }
 
-/* Header: ရွှေရောင် စာသားများနှင့် Stage */
+/* Header: ရွှေရောင် စာသားများ၊ Stage နှင့် ပိုက်အမြင့် */
 .scorebug-header {
   display: flex;
   justify-content: space-between;
@@ -80,11 +80,20 @@ body {
   white-space: nowrap;
 }
 
-/* Tournament Stage Badge (Group, 16 သင်း, Quarter, etc.) */
+/* Tournament Stage Badge */
 .gold-badge.stage {
   background: rgba(56, 189, 248, 0.18);
   color: #38bdf8;
   border: 1px solid rgba(56, 189, 248, 0.5);
+  box-shadow: none;
+  font-weight: 900;
+}
+
+/* ပိုက်အမြင့် Badge */
+.gold-badge.height {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.5);
   box-shadow: none;
   font-weight: 900;
 }
