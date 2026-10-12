@@ -1,5 +1,14 @@
 let current = {};
 
+const STAGES = {
+  "Group": "stage-group",
+  "၁၆ သင်း": "stage-16",
+  "Play-off": "stage-playoff",
+  "Quarter": "stage-quarter",
+  "Semi": "stage-semi",
+  "Final": "stage-final"
+};
+
 takrawRef.on('value', (snap) => {
   const data = snap.val();
   if (!data) return;
@@ -13,9 +22,21 @@ takrawRef.on('value', (snap) => {
   document.getElementById('ctrl-a-sets').textContent = data.awaySets ?? 0;
   document.getElementById('ctrl-a-pts').textContent = data.awayPoints ?? 0;
 
-  // Active Buttons UI
+  // Active Buttons (ပွဲအမျိုးအစား & ကစားဟန်)
   updateToggleUI('btn-type-pro', 'btn-type-tour', data.matchType === 'ကြေးစား');
   updateToggleUI('btn-style-fight', 'btn-style-handi', data.matchStyle === 'အဖိုက် / အနိုက်');
+
+  // Stage Buttons Active State
+  Object.entries(STAGES).forEach(([stgName, btnId]) => {
+    const el = document.getElementById(btnId);
+    if (el) {
+      if (data.matchStage === stgName) {
+        el.classList.add('active');
+      } else {
+        el.classList.remove('active');
+      }
+    }
+  });
 
   // Due Button UI
   const dueBtn = document.getElementById('btn-due');
@@ -46,11 +67,14 @@ function selectMatchType(type) {
   takrawRef.update({ matchType: type });
 }
 
+function selectStage(stage) {
+  takrawRef.update({ matchStage: stage });
+}
+
 function selectMatchStyle(style) {
   takrawRef.update({ matchStyle: style });
 }
 
-// Due Point Toggle
 function toggleDue() {
   takrawRef.update({ isDue: !current.isDue });
 }
@@ -98,7 +122,8 @@ function saveTeams() {
 function resetAll() {
   if (confirm("ပွဲစဉ်အချက်အလက် အားလုံးကို အစက ပြန်စမလား?")) {
     takrawRef.set({
-      matchType: "ကြေးစား",
+      matchType: "ပြိုင်ပွဲ",
+      matchStage: "Quarter",
       matchStyle: "အဖိုက် / အနိုက်",
       homeName: "မြန်မာ",
       awayName: "ထိုင်း",
