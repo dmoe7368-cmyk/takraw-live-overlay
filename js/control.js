@@ -22,6 +22,11 @@ takrawRef.on('value', (snap) => {
   document.getElementById('ctrl-a-sets').textContent = data.awaySets ?? 0;
   document.getElementById('ctrl-a-pts').textContent = data.awayPoints ?? 0;
 
+  // ပိုက်အမြင့် input တွင် လက်ရှိတန်ဖိုး ထည့်ပေးထားခြင်း
+  if (data.netHeight) {
+    document.getElementById('input-net-height').value = data.netHeight;
+  }
+
   // Active Buttons (ပွဲအမျိုးအစား & ကစားဟန်)
   updateToggleUI('btn-type-pro', 'btn-type-tour', data.matchType === 'ကြေးစား');
   updateToggleUI('btn-style-fight', 'btn-style-handi', data.matchStyle === 'အဖိုက် / အနိုက်');
@@ -75,6 +80,17 @@ function selectMatchStyle(style) {
   takrawRef.update({ matchStyle: style });
 }
 
+// ပိုက်အမြင့် သတ်မှတ်ခြင်း functions
+function quickSetHeight(h) {
+  document.getElementById('input-net-height').value = h;
+  takrawRef.update({ netHeight: h });
+}
+
+function saveCustomHeight() {
+  const h = document.getElementById('input-net-height').value.trim();
+  takrawRef.update({ netHeight: h });
+}
+
 function toggleDue() {
   takrawRef.update({ isDue: !current.isDue });
 }
@@ -122,8 +138,9 @@ function saveTeams() {
 function resetAll() {
   if (confirm("ပွဲစဉ်အချက်အလက် အားလုံးကို အစက ပြန်စမလား?")) {
     takrawRef.set({
-      matchType: "ပြိုင်ပွဲ",
-      matchStage: "Quarter",
+      matchType: "ကြေးစား",
+      matchStage: "",
+      netHeight: "၅'၂\"",
       matchStyle: "အဖိုက် / အနိုက်",
       homeName: "မြန်မာ",
       awayName: "ထိုင်း",
