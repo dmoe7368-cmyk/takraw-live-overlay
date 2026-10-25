@@ -1,17 +1,31 @@
 // ========================================================
-// နာမည်ရှည်ပါက Font Size Auto ညှိပေးသည့် Function
+// နာမည်ရှည်ပါက Font Size လျှော့ချပြီး မဆန့်သေးပါက Auto Scale ညှစ်ပေးမည့် Function
 // ========================================================
 function autoFitText(element, maxFont = 19, minFont = 11) {
   if (!element || !element.parentElement) return;
 
+  const parent = element.parentElement;
+  
+  // အသစ်ပြန်လည် တွက်ချက်ရန် မူလအတိုင်း Reset အရင်ချမည်
+  element.style.transform = "none";
   element.style.fontSize = maxFont + "px";
-  const parentWidth = element.parentElement.clientWidth;
+  element.style.display = "inline-block";
+  element.style.whiteSpace = "nowrap";
+  element.style.transformOrigin = "left center";
 
-  // Box ထက် စာလုံးရှည်နေပါက အလိုအလျောက် ဆိုဒ်ချုံ့မည်
-  if (parentWidth > 0) {
-    while (element.scrollWidth > parentWidth && parseFloat(element.style.fontSize) > minFont) {
+  const availableWidth = parent.clientWidth;
+
+  if (availableWidth > 0) {
+    // ၁။ Font Size ကို အသေးဆုံး (minFont) ရောက်သည်အထိ အရင်လျှော့ချမည်
+    while (element.scrollWidth > availableWidth && parseFloat(element.style.fontSize) > minFont) {
       let currentSize = parseFloat(element.style.fontSize);
       element.style.fontSize = (currentSize - 0.5) + "px";
+    }
+
+    // ၂။ အသေးဆုံးရောက်သွားသော်လည်း နာမည်က ရှည်လွန်း၍ မဆန့်သေးပါက ဘောင်ထဲဝင်အောင် Scale ဖြင့်ညှစ်မည်
+    if (element.scrollWidth > availableWidth) {
+      const scaleX = availableWidth / element.scrollWidth;
+      element.style.transform = `scaleX(${scaleX})`;
     }
   }
 }
@@ -75,7 +89,8 @@ if (targetRef) {
       const homeNameEl = document.getElementById('home-name');
       if (homeNameEl) {
         homeNameEl.textContent = data.homeName || 'မြန်မာ';
-        autoFitText(homeNameEl, 19, 11);
+        // ထည့်သွင်းပြီးတိုင်း Auto Fit စနစ်ကို ခေါ်သုံးမည်
+        setTimeout(() => autoFitText(homeNameEl, 19, 11), 50); 
       }
       const homeSetsEl = document.getElementById('home-sets');
       if (homeSetsEl) homeSetsEl.textContent = data.homeSets ?? 0;
@@ -86,7 +101,8 @@ if (targetRef) {
       const awayNameEl = document.getElementById('away-name');
       if (awayNameEl) {
         awayNameEl.textContent = data.awayName || 'ထိုင်း';
-        autoFitText(awayNameEl, 19, 11);
+        // ထည့်သွင်းပြီးတိုင်း Auto Fit စနစ်ကို ခေါ်သုံးမည်
+        setTimeout(() => autoFitText(awayNameEl, 19, 11), 50);
       }
       const awaySetsEl = document.getElementById('away-sets');
       if (awaySetsEl) awaySetsEl.textContent = data.awaySets ?? 0;
