@@ -4,15 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Takraw Live Scoreboard Overlay</title>
-  
-  <!-- စာသားနှင့် နံပါတ်များ အထင်းသားမြင်ရမည့် Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Teko:wght@600;700&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="css/overlay.css">
-  
-  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
@@ -20,22 +12,20 @@
 
   <!-- ညာဘက်အပေါ်ထောင့် Circle Logo -->
   <div class="top-right-badge">
-    <div class="logo-glow-ring">
-      <img src="assets/logo.png" alt="Logo" class="circle-logo" onerror="this.style.display='none'">
-    </div>
+    <img src="assets/logo.png" alt="Logo" class="circle-logo" onerror="this.style.display='none'">
   </div>
 
-  <!-- ဘယ်ဘက် အပေါ်ထောင့် Takraw Scorebug Wrapper -->
+  <!-- ဘယ်ဘက် အပေါ်ထောင့် Scorebug Wrapper -->
   <div class="scorebug-wrapper">
     <div class="scorebug-card" id="board" style="display: none;">
       
-      <!-- အပေါ်ဘက် ရွှေရောင် Header Bar -->
+      <!-- အပေါ်ဘက် Header Bar (Tags & Match Meta) -->
       <div class="scorebug-header">
         <div class="gold-tags">
           <span class="gold-badge" id="meta-type">ကြေးစား</span>
           <span class="gold-badge stage" id="meta-stage" style="display: none;">Quarter</span>
           <span class="gold-badge height" id="meta-height" style="display: none;">ပိုက်: ၅'၂"</span>
-          <span class="gold-badge sub" id="meta-style">အဖိုက် / အနိုက်</span>
+          <span class="gold-badge sub" id="meta-style">ဝါးစား / အောက်ခံ</span>
         </div>
         <div class="set-meta">
           <span class="set-text" id="current-set">SET 1</span>
@@ -46,45 +36,45 @@
       <!-- ပင်မ အမှတ်စာရင်း Body -->
       <div class="scorebug-body">
         
-        <!-- အပေါ်သင်း (Home Team Row) -->
+        <!-- ရမှတ်နှင့် Set ခွဲခြားပြသမည့် ခေါင်းစဉ်တန်း -->
+        <div class="score-col-header-row">
+          <div class="col-spacer"></div>
+          <div class="col-hdr set-hdr">SET</div>
+          <div class="col-hdr pts-hdr">PTS</div>
+        </div>
+
+        <!-- အပေါ်သင်း (Home Team) -->
         <div class="team-row" id="home-row">
           <div class="serve-slot">
-            <span class="serve-ball" title="Serving"></span>
+            <span class="serve-ball"></span>
           </div>
-
           <div class="team-name-box">
-            <span class="team-name-text" id="home-name">မြန်မာ</span>
+            <span class="team-name-text" id="home-name">ကျောင်းဆရာ၊ ကျောင်းတိုက်</span>
+            <span class="team-flag" id="home-flag">🇲🇲</span>
           </div>
-
-          <div class="set-win-box" title="Sets Won">
-            <span class="set-label">SET</span>
+          <div class="set-win-box">
             <span class="set-num" id="home-sets">0</span>
           </div>
-
-          <div class="pts-box" title="Points">
+          <div class="pts-box">
             <span class="pts-num" id="home-pts">0</span>
           </div>
         </div>
 
-        <!-- အလယ်ခြားမျဉ်း -->
         <div class="team-divider"></div>
 
-        <!-- အောက်သင်း (Away Team Row) -->
+        <!-- အောက်သင်း (Away Team) -->
         <div class="team-row" id="away-row">
           <div class="serve-slot">
-            <span class="serve-ball" title="Serving"></span>
+            <span class="serve-ball"></span>
           </div>
-
           <div class="team-name-box">
-            <span class="team-name-text" id="away-name">ထိုင်း</span>
+            <span class="team-name-text" id="away-name">ဖိုးဝေ ၊ ဖိုးဘတ်</span>
+            <span class="team-flag" id="away-flag">🇹🇭</span>
           </div>
-
-          <div class="set-win-box" title="Sets Won">
-            <span class="set-label">SET</span>
+          <div class="set-win-box">
             <span class="set-num" id="away-sets">0</span>
           </div>
-
-          <div class="pts-box" title="Points">
+          <div class="pts-box">
             <span class="pts-num" id="away-pts">0</span>
           </div>
         </div>
@@ -94,7 +84,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="js/firebase-config.js"></script>
   <script src="js/overlay.js"></script>
 </body>
