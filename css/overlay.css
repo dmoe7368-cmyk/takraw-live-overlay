@@ -1,5 +1,6 @@
 /* ========================================================
    TAKRAW LIVE OVERLAY - BROADCAST GOLD TABLE THEME
+   (WITH BLUE & RED TEAM COLORS)
    ======================================================== */
 
 * {
@@ -143,7 +144,7 @@ body {
 }
 
 .th-name {
-  flex: 1; /* ကစားသမား အမည်နေရာ လွတ်ထားခြင်း */
+  flex: 1;
 }
 
 .th-box {
@@ -153,21 +154,19 @@ body {
   text-align: center;
 }
 
-/* SET ခေါင်းစဉ် - အောက်က Set Box နှင့် တပြေးညီ (44px) */
 .th-set {
   width: 44px;
   color: #38bdf8;
   margin-right: 8px;
 }
 
-/* PTS ခေါင်းစဉ် - အောက်က PTS Box နှင့် တပြေးညီ (54px) */
 .th-pts {
   width: 54px;
   color: #fbbf24;
 }
 
 /* =========================================
-   Team Rows (Players & Scores)
+   Team Rows (Players & Scores Base)
    ========================================= */
 .team-row {
   display: flex;
@@ -211,16 +210,14 @@ body {
   100% { transform: scale(1.2); opacity: 1; }
 }
 
-/* =========================================
-   ကစားသမား အမည်များ (Auto-Fit ညှိရန် ပြင်ဆင်ချက်)
-   ========================================= */
+/* ကစားသမား အမည်များ (Auto-Fit Support) */
 .team-name-box {
   flex: 1;
   padding: 0 10px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  min-width: 0; /* Flexbox ထဲတွင် ချုံ့နိုင်စေရန် မရှိမဖြစ်လိုအပ်သည် */
+  min-width: 0; 
 }
 
 .team-name-text {
@@ -228,16 +225,14 @@ body {
   font-weight: 900;
   color: #ffffff;
   white-space: nowrap;
-  display: inline-block; /* Transform/Scale အလုပ်လုပ်စေရန် block မှ ပြောင်းထားသည် */
+  display: inline-block; 
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
-  text-overflow: clip !important; /* အစက် ၃ စက် (...) လုံးဝမပေါ်စေရန် */
-  overflow: visible !important;   /* Scale ချုံ့သည့်အခါ စာလုံးများ ရှင်းလင်းစွာပေါ်စေရန် */
+  text-overflow: clip !important; 
+  overflow: visible !important;   
 }
 
-/* =========================================
-   SET အနိုင်ရလဒ် Box (အပြာရောင် သီးသန့် Frame)
-   ========================================= */
+/* SET အနိုင်ရလဒ် Box */
 .set-win-box {
   width: 44px;
   height: 40px;
@@ -258,9 +253,7 @@ body {
   line-height: 1;
 }
 
-/* =========================================
-   PTS ရမှတ် Box (ရွှေရောင် တောက်ပသော Frame)
-   ========================================= */
+/* PTS ရမှတ် Box */
 .pts-box {
   width: 54px;
   height: 42px;
@@ -280,4 +273,29 @@ body {
   color: #fbbf24;
   line-height: 1;
   text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+
+
+/* =========================================
+   အသင်း (၂) သင်း အရောင်ခွဲခြားခြင်း (Sky Blue vs Solid Red)
+   ========================================= */
+
+/* --- အပေါ်သင်း (Home) - အပြာရောင် --- */
+#home-row {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.85) 50%) !important;
+  border-left: 3px solid #38bdf8; /* အပြာရောင်ဘောင် */
+}
+#home-name {
+  color: #38bdf8 !important; 
+  text-shadow: 0 2px 5px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* --- အောက်သင်း (Away) - အနီရောင်စစ်စစ် (Solid Red) --- */
+#away-row {
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.15), rgba(15, 23, 42, 0.85) 50%) !important;
+  border-left: 3px solid #ef4444; /* အနီရောင်ဘောင် */
+}
+#away-name {
+  color: #ef4444 !important; 
+  text-shadow: 0 2px 5px rgba(239, 68, 68, 0.4) !important;
 }
