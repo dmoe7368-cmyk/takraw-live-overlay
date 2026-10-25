@@ -1,12 +1,12 @@
 /* ========================================================
-   TAKRAW LIVE OVERLAY - BROADCAST GOLD THEME (FIXED LAYOUT)
+   TAKRAW LIVE OVERLAY - BROADCAST GOLD TABLE THEME
    ======================================================== */
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Pyidaungsu", "Padauk", sans-serif;
+  font-family: "Pyidaungsu", "Padauk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
@@ -26,18 +26,18 @@ body {
 }
 
 .circle-logo {
-  width: 60px;
-  height: 60px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #f59e0b;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(245, 158, 11, 0.4);
-  background: #0b0f19;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 0 12px rgba(245, 158, 11, 0.4);
+  background: #090e17;
   display: block;
 }
 
 /* =========================================
-   Scorebug Wrapper & Card (Metallic Gold Border)
+   Scorebug Card (ရွှေရောင် Metallic Border)
    ========================================= */
 .scorebug-wrapper {
   position: absolute;
@@ -49,24 +49,24 @@ body {
 .scorebug-card {
   display: flex;
   flex-direction: column;
-  width: 480px; /* စာသားနှင့် Box များ မကျပ်စေရန် အပြည့်ယူထားပါသည် */
-  background: #090e17; /* အလင်းမထိုးဖောက်နိုင်သော Dark Solid Background */
+  width: 480px;
+  background: #090e17;
   border-radius: 12px;
-  border: 2.5px solid #f59e0b; /* ရွှေရောင် Metallic Border */
+  border: 2.5px solid #f59e0b;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 0 20px rgba(245, 158, 11, 0.35);
   color: #fff;
   overflow: hidden;
 }
 
 /* =========================================
-   Header Bar (Tags & Match Meta)
+   Header Bar (Badges & Current Set)
    ========================================= */
 .scorebug-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #111827;
-  padding: 7px 12px;
+  padding: 8px 12px;
   border-bottom: 2px solid rgba(245, 158, 11, 0.35);
 }
 
@@ -81,7 +81,7 @@ body {
   color: #000;
   font-weight: 900;
   font-size: 12px;
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: 4px;
   white-space: nowrap;
 }
@@ -99,7 +99,7 @@ body {
 .gold-badge.sub {
   background: rgba(245, 158, 11, 0.15);
   color: #fbbf24;
-  border: 1px solid rgba(251, 191, 36, 0.4);
+  border: 1px solid rgba(251, 191, 36, 0.45);
 }
 
 .set-meta {
@@ -113,70 +113,78 @@ body {
   font-weight: 900;
   color: #000;
   background: #facc15;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 4px;
+  letter-spacing: 0.5px;
 }
 
 .due-pill {
-  background: #ef4444;
+  background: #dc2626;
   color: #fff;
   font-size: 11px;
   font-weight: 900;
-  padding: 1px 6px;
+  padding: 2px 7px;
   border-radius: 3px;
 }
 
 /* =========================================
-   Column Headers (SET နှင့် PTS ခေါင်းစဉ်တန်း)
+   Table Grid: SET & PTS Column Header
    ========================================= */
-.score-col-header-row {
+.scorebug-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-header-row {
   display: flex;
   align-items: center;
   padding: 4px 12px 2px 12px;
-  background: #0d131f;
+  background: #0d1422;
 }
 
-.col-spacer {
-  flex: 1; /* နာမည်နေရာအတွက် ချန်လှပ်ထားခြင်း */
+.th-name {
+  flex: 1; /* ကစားသမား အမည်နေရာ လွတ်ထားခြင်း */
 }
 
-.col-hdr {
+.th-box {
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 1px;
   text-align: center;
 }
 
-.set-hdr {
+/* SET ခေါင်းစဉ် - အောက်က Set Box နှင့် တပြေးညီ (44px) */
+.th-set {
   width: 44px;
-  color: #38bdf8; /* Set ခေါင်းစဉ် အပြာရောင် */
+  color: #38bdf8;
   margin-right: 8px;
 }
 
-.pts-hdr {
-  width: 52px;
-  color: #fbbf24; /* PTS ခေါင်းစဉ် ရွှေရောင် */
+/* PTS ခေါင်းစဉ် - အောက်က PTS Box နှင့် တပြေးညီ (54px) */
+.th-pts {
+  width: 54px;
+  color: #fbbf24;
 }
 
 /* =========================================
-   Team Rows (Names & Scores)
+   Team Rows (Players & Scores)
    ========================================= */
 .team-row {
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  height: 54px;
-  background: rgba(15, 23, 42, 0.8);
+  height: 56px;
+  background: rgba(15, 23, 42, 0.85);
 }
 
 .team-divider {
-  height: 1px;
+  height: 1.5px;
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Service Dot */
+/* Serve Slot */
 .serve-slot {
-  width: 20px;
+  width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,8 +192,8 @@ body {
 }
 
 .serve-ball {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: radial-gradient(circle, #fffbeb 20%, #facc15 65%, #b45309 100%);
   box-shadow: 0 0 10px #facc15;
@@ -203,37 +211,30 @@ body {
   100% { transform: scale(1.2); opacity: 1; }
 }
 
-/* ကစားသမား အမည်များနှင့် အလံ */
+/* ကစားသမား အမည်များ (စာလုံးကြီးကြီးနှင့် ပြတ်သားမှု) */
 .team-name-box {
   flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow: hidden;
   padding: 0 10px;
+  overflow: hidden;
 }
 
 .team-name-text {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 900;
   color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
 }
 
-.team-flag {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-/* SET အနိုင်ရလဒ် အကွက် (သန့်ရှင်းသော အပြာရောင် Box) */
+/* SET အနိုင်ရလဒ် Box (အပြာရောင် သီးသန့် Frame) */
 .set-win-box {
   width: 44px;
-  height: 38px;
+  height: 40px;
   background: #1e293b;
-  border: 1.5px solid #38bdf8; /* Set Box အပြာရောင် Border */
+  border: 1.5px solid #38bdf8;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -245,28 +246,28 @@ body {
 .set-num {
   font-size: 22px;
   font-weight: 900;
-  color: #38bdf8; /* Set ဂဏန်းကို အပြာကြည်ရောင်ဖြင့် သီးသန့်ပေါ်လွင်စေခြင်း */
+  color: #38bdf8;
   line-height: 1;
 }
 
-/* လက်ရှိ Set ရမှတ် Box (တောက်ပသော ရွှေရောင် Box) */
+/* PTS ရမှတ် Box (ရွှေရောင် တောက်ပသော Frame) */
 .pts-box {
-  width: 52px;
-  height: 40px;
+  width: 54px;
+  height: 42px;
   background: #020617;
-  border: 2px solid #f59e0b; /* ရွှေရောင် Border */
+  border: 2px solid #f59e0b;
   border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.9), 0 0 12px rgba(245, 158, 11, 0.35);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(245, 158, 11, 0.4);
   flex-shrink: 0;
 }
 
 .pts-num {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 900;
-  color: #fbbf24; /* တောက်ပသော ရွှေရောင် ရမှတ် */
+  color: #fbbf24;
   line-height: 1;
-  text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
 }
