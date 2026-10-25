@@ -1,6 +1,6 @@
 /* ========================================================
    TAKRAW LIVE OVERLAY - BROADCAST GOLD TABLE THEME
-   (WITH BLUE & RED TEAM COLORS)
+   (WITH BLUE & GREEN TEAM COLORS)
    ======================================================== */
 
 * {
@@ -277,7 +277,7 @@ body {
 
 
 /* =========================================
-   အသင်း (၂) သင်း အရောင်ခွဲခြားခြင်း (Sky Blue vs Solid Red)
+   အသင်း (၂) သင်း အရောင်ခွဲခြားခြင်း (Sky Blue vs Vibrant Green)
    ========================================= */
 
 /* --- အပေါ်သင်း (Home) - အပြာရောင် --- */
@@ -290,12 +290,12 @@ body {
   text-shadow: 0 2px 5px rgba(56, 189, 248, 0.4) !important;
 }
 
-/* --- အောက်သင်း (Away) - အနီရောင်စစ်စစ် (Solid Red) --- */
+/* --- အောက်သင်း (Away) - အစိမ်းရောင် (Green) --- */
 #away-row {
-  background: linear-gradient(90deg, rgba(239, 68, 68, 0.15), rgba(15, 23, 42, 0.85) 50%) !important;
-  border-left: 3px solid #ef4444; /* အနီရောင်ဘောင် */
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.15), rgba(15, 23, 42, 0.85) 50%) !important;
+  border-left: 3px solid #22c55e; /* အစိမ်းရောင်ဘောင် */
 }
 #away-name {
-  color: #ef4444 !important; 
-  text-shadow: 0 2px 5px rgba(239, 68, 68, 0.4) !important;
+  color: #22c55e !important; 
+  text-shadow: 0 2px 5px rgba(34, 197, 94, 0.4) !important;
 }
